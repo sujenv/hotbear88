@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1428</width>
+    <height>755</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>매입 매출 마스터 관리</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QMdiArea" name="mdiArea"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1428</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_basic_info">
+    <property name="title">
+     <string>기준정보</string>
+    </property>
+    <widget class="QMenu" name="menu_basic_info_cars">
+     <property name="title">
+      <string>차량관리</string>
+     </property>
+     <addaction name="sel_employeecar"/>
+     <addaction name="sel_customercar"/>
+     <addaction name="sel_delivery"/>
+    </widget>
+    <widget class="QMenu" name="menu_basic_info_arap">
+     <property name="title">
+      <string>매입매출</string>
+     </property>
+     <widget class="QMenu" name="menu_basic_info_items">
+      <property name="title">
+       <string>품목관리</string>
+      </property>
+      <addaction name="sel_ap_product"/>
+      <addaction name="sel_nr_salesitem"/>
+     </widget>
+     <widget class="QMenu" name="menu_basic_info_price">
+      <property name="title">
+       <string>단가관리</string>
+      </property>
+      <addaction name="sel_ap_cost"/>
+      <addaction name="sel_nr_salesprice"/>
+     </widget>
+     <addaction name="menu_basic_info_items"/>
+     <addaction name="menu_basic_info_price"/>
+    </widget>
+    <widget class="QMenu" name="menu_basic_info_cuonsumabels">
+     <property name="title">
+      <string>소모품</string>
+     </property>
+     <widget class="QMenu" name="menu_basic_info_consumables_unitprice">
+      <property name="title">
+       <string>단가관리</string>
+      </property>
+      <addaction name="sel_consumable_inprice"/>
+      <addaction name="sel_consumable_outprice"/>
+     </widget>
+     <addaction name="sel_consumable_product"/>
+     <addaction name="menu_basic_info_consumables_unitprice"/>
+     <addaction name="sel_conversion"/>
+    </widget>
+    <widget class="QMenu" name="menu_basic_info_apt">
+     <property name="title">
+      <string>아파트관리</string>
+     </property>
+     <addaction name="sel_apt_master"/>
+     <addaction name="sel_apt_contact"/>
+     <addaction name="sel_apt_address"/>
+     <addaction name="sel_apt_bankaccno"/>
+    </widget>
+    <widget class="QMenu" name="menu_basic_info_employee">
+     <property name="title">
+      <string>직원관리</string>
+     </property>
+     <widget class="QMenu" name="menu_3">
+      <property name="title">
+       <string>기준정보</string>
+      </property>
+      <addaction name="sel_employee"/>
+      <addaction name="sel_phoneno"/>
+      <addaction name="sel_regno"/>
+      <addaction name="sel_address"/>
+      <addaction name="sel_bankaccno"/>
+     </widget>
+     <addaction name="menu_3"/>
+     <addaction name="sel_salary_employeeinfo"/>
+     <addaction name="sel_gpaiinfo"/>
+    </widget>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>거래처관리</string>
+     </property>
+     <addaction name="sel_customer"/>
+     <addaction name="sel_cusphoneno"/>
+     <addaction name="sel_cuscorpno"/>
+     <addaction name="sel_customeraddress"/>
+     <addaction name="sel_customerbkaccno"/>
+    </widget>
+    <addaction name="menu_basic_info_employee"/>
+    <addaction name="menu_4"/>
+    <addaction name="separator"/>
+    <addaction name="menu_basic_info_cars"/>
+    <addaction name="separator"/>
+    <addaction name="menu_basic_info_arap"/>
+    <addaction name="separator"/>
+    <addaction name="menu_basic_info_cuonsumabels"/>
+    <addaction name="separator"/>
+    <addaction name="menu_basic_info_apt"/>
+    <addaction name="separator"/>
+    <addaction name="DB_update"/>
+   </widget>
+   <widget class="QMenu" name="menu_window">
+    <property name="title">
+     <string>창</string>
+    </property>
+    <addaction name="action_cascade"/>
+   </widget>
+   <widget class="QMenu" name="menu_arap">
+    <property name="title">
+     <string>매입매출관리</string>
+    </property>
+    <widget class="QMenu" name="menu_arap_receivables">
+     <property name="title">
+      <string>매출입력</string>
+     </property>
+     <addaction name="sel_arfileopen"/>
+     <addaction name="sel_artoap"/>
+     <addaction name="sel_arclosing"/>
+    </widget>
+    <widget class="QMenu" name="menu_arap_payables">
+     <property name="title">
+      <string>매입입력</string>
+     </property>
+     <addaction name="sel_apfileopen"/>
+     <addaction name="sel_apslip"/>
+     <addaction name="sel_apcheckttl"/>
+     <addaction name="sel_apcheck"/>
+    </widget>
+    <addaction name="menu_arap_receivables"/>
+    <addaction name="separator"/>
+    <addaction name="menu_arap_payables"/>
+   </widget>
+   <widget class="QMenu" name="menu_consumables">
+    <property name="title">
+     <string>소모품정산</string>
+    </property>
+    <widget class="QMenu" name="menu_consumables_management">
+     <property name="title">
+      <string>소모품관리</string>
+     </property>
+     <widget class="QMenu" name="menu_consumables_closing">
+      <property name="title">
+       <string>마감관리</string>
+      </property>
+      <addaction name="sel_closing_receipt"/>
+      <addaction name="sel_closing_sales"/>
+     </widget>
+     <addaction name="sel_consumable_receipt"/>
+     <addaction name="sel_consumable_sales"/>
+     <addaction name="sel_consumable_inventory"/>
+     <addaction name="menu_consumables_closing"/>
+    </widget>
+    <addaction name="menu_consumables_management"/>
+   </widget>
+   <widget class="QMenu" name="menu_salary">
+    <property name="title">
+     <string>급여관리</string>
+    </property>
+    <widget class="QMenu" name="menu_cal_salary">
+     <property name="title">
+      <string>급여모의계산</string>
+     </property>
+     <addaction name="sel_salary_outh_basic"/>
+     <addaction name="sel_salary_inh_basic"/>
+    </widget>
+    <widget class="QMenu" name="menu_cal_ot">
+     <property name="title">
+      <string>특근시간계산</string>
+     </property>
+     <addaction name="sel_salary_outh_ot"/>
+     <addaction name="sel_salary_inh_ot"/>
+    </widget>
+    <widget class="QMenu" name="menu_5">
+     <property name="title">
+      <string>월별지급금액산정</string>
+     </property>
+     <widget class="QMenu" name="menu_6">
+      <property name="title">
+       <string>물품대</string>
+      </property>
+      <widget class="QMenu" name="menu_7">
+       <property name="title">
+        <string>지원금정산</string>
+       </property>
+       <widget class="QMenu" name="menu_9">
+        <property name="title">
+         <string>아파트</string>
+        </property>
+        <addaction name="sel_supportaptinfo"/>
+        <addaction name="sel_supportaptgen"/>
+        <addaction name="sel_supportaptview"/>
+       </widget>
+       <widget class="QMenu" name="menu_10">
+        <property name="title">
+         <string>기타</string>
+        </property>
+        <addaction name="action_23"/>
+        <addaction name="action_24"/>
+        <addaction name="action_25"/>
+       </widget>
+       <addaction name="menu_9"/>
+       <addaction name="menu_10"/>
+      </widget>
+      <widget class="QMenu" name="menu_8">
+       <property name="title">
+        <string>물품대정산</string>
+       </property>
+       <addaction name="sel_genbkaccproduct"/>
+       <addaction name="sel_paymentproduct"/>
+       <addaction name="sel_genbkacccheck"/>
+      </widget>
+      <widget class="QMenu" name="menu_11">
+       <property name="title">
+        <string>상해보험정산</string>
+       </property>
+       <addaction name="sel_gpaigen"/>
+       <addaction name="sel_gpaiview"/>
+      </widget>
+      <widget class="QMenu" name="menu_12">
+       <property name="title">
+        <string>주유대정산</string>
+       </property>
+       <addaction name="sel_oilusage"/>
+       <addaction name="sel_oilusageclosing"/>
+       <addaction name="sel_oilusagecom"/>
+       <addaction name="sel_oilusageemp"/>
+      </widget>
+      <widget class="QMenu" name="menu_13">
+       <property name="title">
+        <string>아파트관련 공제금정산</string>
+       </property>
+       <widget class="QMenu" name="menu_14">
+        <property name="title">
+         <string>아파트</string>
+        </property>
+        <addaction name="action_28"/>
+        <addaction name="action_30"/>
+        <addaction name="action_31"/>
+       </widget>
+       <widget class="QMenu" name="menu_15">
+        <property name="title">
+         <string>기타</string>
+        </property>
+        <addaction name="action_32"/>
+        <addaction name="action_34"/>
+        <addaction name="action_35"/>
+       </widget>
+       <addaction name="menu_14"/>
+       <addaction name="menu_15"/>
+      </widget>
+      <widget class="QMenu" name="menu_16">
+       <property name="title">
+        <string>식대정산</string>
+       </property>
+       <addaction name="action_36"/>
+       <addaction name="action_38"/>
+       <addaction name="action_39"/>
+       <addaction name="action_40"/>
+      </widget>
+      <widget class="QMenu" name="menu_17">
+       <property name="title">
+        <string>소모품정산</string>
+       </property>
+       <addaction name="action_42"/>
+       <addaction name="action_43"/>
+       <addaction name="action_54"/>
+      </widget>
+      <widget class="QMenu" name="menu_18">
+       <property name="title">
+        <string>기타정산</string>
+       </property>
+       <addaction name="action_55"/>
+       <addaction name="action_56"/>
+       <addaction name="action_57"/>
+      </widget>
+      <addaction name="menu_8"/>
+      <addaction name="menu_7"/>
+      <addaction name="menu_11"/>
+      <addaction name="menu_12"/>
+      <addaction name="menu_13"/>
+      <addaction name="menu_16"/>
+      <addaction name="menu_17"/>
+      <addaction name="menu_18"/>
+     </widget>
+     <addaction name="menu_6"/>
+     <addaction name="action_12"/>
+    </widget>
+    <addaction name="sel_salary_calmaster"/>
+    <addaction name="separator"/>
+    <addaction name="menu_cal_ot"/>
+    <addaction name="menu_cal_salary"/>
+    <addaction name="separator"/>
+    <addaction name="sel_salary_pension"/>
+    <addaction name="separator"/>
+    <addaction name="sel_advancepay"/>
+    <addaction name="separator"/>
+    <addaction name="menu_5"/>
+    <addaction name="separator"/>
+    <addaction name="sel_salary_annalleave"/>
+    <addaction name="separator"/>
+    <addaction name="sel_salary_retirementpay"/>
+   </widget>
+   <widget class="QMenu" name="menu_aptmanagement">
+    <property name="title">
+     <string>아파트관리</string>
+    </property>
+    <widget class="QMenu" name="menu_aptmanagement_contract">
+     <property name="title">
+      <string>계약관리</string>
+     </property>
+     <widget class="QMenu" name="menu_2">
+      <property name="title">
+       <string>헌옷</string>
+      </property>
+      <addaction name="sel_aptcloth_btb"/>
+      <addaction name="action_7"/>
+     </widget>
+     <addaction name="sel_apt_contract"/>
+     <addaction name="sel_apt_contractpic"/>
+     <addaction name="sel_apt_report"/>
+     <addaction name="menu_2"/>
+    </widget>
+    <widget class="QMenu" name="menu_aptmanagement_quotations">
+     <property name="title">
+      <string>견적관리</string>
+     </property>
+     <addaction name="action_14"/>
+     <addaction name="action_15"/>
+     <addaction name="action_16"/>
+     <addaction name="action_17"/>
+     <addaction name="action_18"/>
+     <addaction name="action_19"/>
+     <addaction name="action_20"/>
+     <addaction name="action_21"/>
+    </widget>
+    <addaction name="menu_aptmanagement_contract"/>
+    <addaction name="menu_aptmanagement_quotations"/>
+    <addaction name="action_8"/>
+    <addaction name="action_10"/>
+    <addaction name="action"/>
+   </widget>
+   <widget class="QMenu" name="menu_recycling">
+    <property name="title">
+     <string>순환자원센타</string>
+    </property>
+    <addaction name="sel_reinfo"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>근태관리</string>
+    </property>
+    <addaction name="sel_absenteeism"/>
+    <addaction name="action_3"/>
+   </widget>
+   <addaction name="menu_basic_info"/>
+   <addaction name="menu_arap"/>
+   <addaction name="menu_consumables"/>
+   <addaction name="menu"/>
+   <addaction name="menu_salary"/>
+   <addaction name="menu_aptmanagement"/>
+   <addaction name="menu_recycling"/>
+   <addaction name="menu_window"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="sel_nr_salesitem">
+   <property name="text">
+    <string>매출품목관리</string>
+   </property>
+  </action>
+  <action name="action_cascade">
+   <property name="text">
+    <string>정렬하기</string>
+   </property>
+  </action>
+  <action name="sel_customercar">
+   <property name="text">
+    <string>거래처차량관리</string>
+   </property>
+  </action>
+  <action name="sel_employeecar">
+   <property name="text">
+    <string>직원차량관리</string>
+   </property>
+  </action>
+  <action name="sel_delivery">
+   <property name="text">
+    <string>하역방법</string>
+   </property>
+  </action>
+  <action name="sel_nr_salesprice">
+   <property name="text">
+    <string>매출단가관리</string>
+   </property>
+  </action>
+  <action name="sel_ap_product">
+   <property name="text">
+    <string>매입품목관리</string>
+   </property>
+  </action>
+  <action name="sel_ap_cost">
+   <property name="text">
+    <string>매입단가관리 </string>
+   </property>
+  </action>
+  <action name="sel_arfileopen">
+   <property name="text">
+    <string>매출입력시트 열기</string>
+   </property>
+  </action>
+  <action name="sel_artoap">
+   <property name="text">
+    <string>매출to매입</string>
+   </property>
+  </action>
+  <action name="sel_arclosing">
+   <property name="text">
+    <string>월결산</string>
+   </property>
+  </action>
+  <action name="sel_apfileopen">
+   <property name="text">
+    <string>매입입력시트열기</string>
+   </property>
+  </action>
+  <action name="sel_apslip">
+   <property name="text">
+    <string>매입영수증</string>
+   </property>
+  </action>
+  <action name="sel_apcheckttl">
+   <property name="text">
+    <string>매입종합</string>
+   </property>
+  </action>
+  <action name="sel_apcheck">
+   <property name="text">
+    <string>매입보고서</string>
+   </property>
+  </action>
+  <action name="sel_consumable_receipt">
+   <property name="text">
+    <string>입고관리</string>
+   </property>
+  </action>
+  <action name="sel_consumable_sales">
+   <property name="text">
+    <string>출고관리</string>
+   </property>
+  </action>
+  <action name="sel_consumable_inventory">
+   <property name="text">
+    <string>재고관리</string>
+   </property>
+  </action>
+  <action name="sel_closing_receipt">
+   <property name="text">
+    <string>입고마감</string>
+   </property>
+  </action>
+  <action name="sel_closing_sales">
+   <property name="text">
+    <string>출고마감</string>
+   </property>
+  </action>
+  <action name="sel_consumable_product">
+   <property name="text">
+    <string>품목관리</string>
+   </property>
+  </action>
+  <action name="sel_conversion">
+   <property name="text">
+    <string>단위환산</string>
+   </property>
+  </action>
+  <action name="sel_consumable_inprice">
+   <property name="text">
+    <string>매입단가관리</string>
+   </property>
+  </action>
+  <action name="sel_consumable_outprice">
+   <property name="text">
+    <string>매출단가관리</string>
+   </property>
+  </action>
+  <action name="sel_salary_calmaster">
+   <property name="text">
+    <string>기준달력관리</string>
+   </property>
+  </action>
+  <action name="sel_apt_master">
+   <property name="text">
+    <string>아파트마스터</string>
+   </property>
+  </action>
+  <action name="sel_apt_contact">
+   <property name="text">
+    <string>아파트연락처</string>
+   </property>
+  </action>
+  <action name="sel_apt_address">
+   <property name="text">
+    <string>아파트주소</string>
+   </property>
+  </action>
+  <action name="action_8">
+   <property name="text">
+    <string>사업실적보고서관리</string>
+   </property>
+  </action>
+  <action name="sel_reinfo">
+   <property name="text">
+    <string>순환자원마스터</string>
+   </property>
+  </action>
+  <action name="action_10">
+   <property name="text">
+    <string>클레임관리</string>
+   </property>
+  </action>
+  <action name="sel_apt_contract">
+   <property name="text">
+    <string>재활용품계약내용</string>
+   </property>
+  </action>
+  <action name="sel_apt_contractpic">
+   <property name="text">
+    <string>담당자</string>
+   </property>
+  </action>
+  <action name="sel_apt_report">
+   <property name="text">
+    <string>보고서</string>
+   </property>
+  </action>
+  <action name="action_14">
+   <property name="text">
+    <string>재활용품</string>
+   </property>
+  </action>
+  <action name="action_15">
+   <property name="text">
+    <string>헌옷</string>
+   </property>
+  </action>
+  <action name="action_16">
+   <property name="text">
+    <string>기피품목</string>
+   </property>
+  </action>
+  <action name="action_17">
+   <property name="text">
+    <string>전지목</string>
+   </property>
+  </action>
+  <action name="action_18">
+   <property name="text">
+    <string>재활용품대</string>
+   </property>
+  </action>
+  <action name="action_19">
+   <property name="text">
+    <string>재활용품망</string>
+   </property>
+  </action>
+  <action name="action_20">
+   <property name="text">
+    <string>기타</string>
+   </property>
+  </action>
+  <action name="action_21">
+   <property name="text">
+    <string>산출내역서</string>
+   </property>
+  </action>
+  <action name="DB_update">
+   <property name="text">
+    <string>DB업데이트하기</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>입찰관리</string>
+   </property>
+  </action>
+  <action name="sel_salary_employeeinfo">
+   <property name="text">
+    <string>4대보험정보</string>
+   </property>
+  </action>
+  <action name="sel_salary_outh_basic">
+   <property name="text">
+    <string>외근직</string>
+   </property>
+  </action>
+  <action name="sel_salary_inh_basic">
+   <property name="text">
+    <string>내근직</string>
+   </property>
+  </action>
+  <action name="sel_salary_pension">
+   <property name="text">
+    <string>4대보험관리</string>
+   </property>
+  </action>
+  <action name="sel_advancepay">
+   <property name="text">
+    <string>가불금관리</string>
+   </property>
+  </action>
+  <action name="sel_salary_annalleave">
+   <property name="text">
+    <string>연차관리</string>
+   </property>
+  </action>
+  <action name="sel_salary_retirementpay">
+   <property name="text">
+    <string>퇴직금관리</string>
+   </property>
+  </action>
+  <action name="sel_salary_outh_ot">
+   <property name="text">
+    <string>외근직</string>
+   </property>
+  </action>
+  <action name="sel_salary_inh_ot">
+   <property name="text">
+    <string>내근직</string>
+   </property>
+  </action>
+  <action name="sel_absenteeism">
+   <property name="text">
+    <string>근태입력하기</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>월근태결산</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>재활용품</string>
+   </property>
+  </action>
+  <action name="sel_aptcloth_btb">
+   <property name="text">
+    <string>수거업체</string>
+   </property>
+  </action>
+  <action name="action_7">
+   <property name="text">
+    <string>아파트</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>전화번호</string>
+   </property>
+  </action>
+  <action name="action_5">
+   <property name="text">
+    <string>주민등록번호</string>
+   </property>
+  </action>
+  <action name="action_6">
+   <property name="text">
+    <string>주소</string>
+   </property>
+  </action>
+  <action name="action_9">
+   <property name="text">
+    <string>계좌번호</string>
+   </property>
+  </action>
+  <action name="sel_employee">
+   <property name="text">
+    <string>기본정보</string>
+   </property>
+  </action>
+  <action name="sel_phoneno">
+   <property name="text">
+    <string>전화번호</string>
+   </property>
+  </action>
+  <action name="sel_regno">
+   <property name="text">
+    <string>주민등록번호</string>
+   </property>
+  </action>
+  <action name="sel_address">
+   <property name="text">
+    <string>주소</string>
+   </property>
+  </action>
+  <action name="sel_bankaccno">
+   <property name="text">
+    <string>계좌번호</string>
+   </property>
+  </action>
+  <action name="sel_customer">
+   <property name="text">
+    <string>기본정보</string>
+   </property>
+  </action>
+  <action name="sel_cusphoneno">
+   <property name="text">
+    <string>연락처</string>
+   </property>
+  </action>
+  <action name="sel_cuscorpno">
+   <property name="text">
+    <string>사업자등록번호</string>
+   </property>
+  </action>
+  <action name="sel_customeraddress">
+   <property name="text">
+    <string>거래처주소</string>
+   </property>
+  </action>
+  <action name="sel_customerbkaccno">
+   <property name="text">
+    <string>거래처계좌번호</string>
+   </property>
+  </action>
+  <action name="sel_apt_bankaccno">
+   <property name="text">
+    <string>아파트계좌번호</string>
+   </property>
+  </action>
+  <action name="action_12">
+   <property name="text">
+    <string>아파트</string>
+   </property>
+  </action>
+  <action name="sel_gpaiinfo">
+   <property name="text">
+    <string>상해보험 정보</string>
+   </property>
+  </action>
+  <action name="sel_genbkaccproduct">
+   <property name="text">
+    <string>물품대 정산용 계좌 생성</string>
+   </property>
+  </action>
+  <action name="sel_paymentproduct">
+   <property name="text">
+    <string>물품대 내역 생성</string>
+   </property>
+  </action>
+  <action name="sel_genbkacccheck">
+   <property name="text">
+    <string>물품대 계좌 및 내역 확인</string>
+   </property>
+  </action>
+  <action name="sel_supportaptinfo">
+   <property name="text">
+    <string>아파트지원금내역</string>
+   </property>
+  </action>
+  <action name="sel_supportaptgen">
+   <property name="text">
+    <string>월별아파트지원금생성</string>
+   </property>
+  </action>
+  <action name="sel_supportaptview">
+   <property name="text">
+    <string>월별아파트지원금확인</string>
+   </property>
+  </action>
+  <action name="action_23">
+   <property name="text">
+    <string>기타지원금내역</string>
+   </property>
+  </action>
+  <action name="action_24">
+   <property name="text">
+    <string>월별기타지원금생성</string>
+   </property>
+  </action>
+  <action name="action_25">
+   <property name="text">
+    <string>월별기타지원금확인</string>
+   </property>
+  </action>
+  <action name="sel_gpaigen">
+   <property name="text">
+    <string>상해보험 자료 생성</string>
+   </property>
+  </action>
+  <action name="sel_gpaiview">
+   <property name="text">
+    <string>상해보험 자료 확인</string>
+   </property>
+  </action>
+  <action name="sel_oilusage">
+   <property name="text">
+    <string>주유대내역보기</string>
+   </property>
+  </action>
+  <action name="sel_oilusageclosing">
+   <property name="text">
+    <string>주유대마감자료생성</string>
+   </property>
+  </action>
+  <action name="sel_oilusagecom">
+   <property name="text">
+    <string>주유소정산내역보기</string>
+   </property>
+  </action>
+  <action name="sel_oilusageemp">
+   <property name="text">
+    <string>직원정산내역보기</string>
+   </property>
+  </action>
+  <action name="action_28">
+   <property name="text">
+    <string>아파트공제내역</string>
+   </property>
+  </action>
+  <action name="action_30">
+   <property name="text">
+    <string>월별아파트공제내역생성</string>
+   </property>
+  </action>
+  <action name="action_31">
+   <property name="text">
+    <string>월별아파트공제내역보기</string>
+   </property>
+  </action>
+  <action name="action_32">
+   <property name="text">
+    <string>아파트기타공제내역</string>
+   </property>
+  </action>
+  <action name="action_34">
+   <property name="text">
+    <string>월별아파트기타공제내역생성</string>
+   </property>
+  </action>
+  <action name="action_35">
+   <property name="text">
+    <string>월별아파트기타공제내역보기</string>
+   </property>
+  </action>
+  <action name="action_36">
+   <property name="text">
+    <string>식대내역보기</string>
+   </property>
+  </action>
+  <action name="action_38">
+   <property name="text">
+    <string>식대마감자료생성</string>
+   </property>
+  </action>
+  <action name="action_39">
+   <property name="text">
+    <string>식당정산내역보기</string>
+   </property>
+  </action>
+  <action name="action_40">
+   <property name="text">
+    <string>직원식대내역보기</string>
+   </property>
+  </action>
+  <action name="action_42">
+   <property name="text">
+    <string>소모품공제내역보기</string>
+   </property>
+  </action>
+  <action name="action_43">
+   <property name="text">
+    <string>월별소모품공제내역생성</string>
+   </property>
+  </action>
+  <action name="action_54">
+   <property name="text">
+    <string>월별소모품공제내역보기</string>
+   </property>
+  </action>
+  <action name="action_55">
+   <property name="text">
+    <string>기타공제내역</string>
+   </property>
+  </action>
+  <action name="action_56">
+   <property name="text">
+    <string>월별기타공제내역생성</string>
+   </property>
+  </action>
+  <action name="action_57">
+   <property name="text">
+    <string>월별기타공제내역보기</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
